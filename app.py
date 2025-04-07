@@ -41,10 +41,6 @@ def previsao(interpreter, image):
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
 
-    # Diagnóstico (opcional)
-    st.write("Esperado pelo modelo:", input_details[0]['shape'], input_details[0]['dtype'])
-    st.write("Imagem recebida:", image.shape, image.dtype)
-
     interpreter.set_tensor(input_details[0]['index'], image)
     interpreter.invoke()
 
